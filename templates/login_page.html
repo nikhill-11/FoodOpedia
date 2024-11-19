@@ -1,0 +1,41 @@
+
+{% extends "base.html" %}
+{% block start %}
+<div >
+    <form style="max-width: 400px; margin: 0 auto;background-color: cream; color: black; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); padding: 20px; border-radius: 8px;" class="card p-3 mt-5 shadow-lg "  method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <h2>Login </h2>
+        {% if messages %}
+        {{messages.tag}}
+        <div class="alert alert-primary" role="alert">
+            {% for messages in messages %}
+            {{messages}}
+            {% endfor %}
+        </div>
+        {% endif %}
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Username</label>
+          <input type="text" name="username" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+          <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Password</label>
+          <input type="password" name="password" class="form-control" id="exampleInputPassword1">
+        </div>
+        <p>Don't have an account <a href="/register">signup<a/></p>
+       
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+
+   
+    
+    
+  
+ 
+
+
+</div>
+
+
+  
+{% endblock start %}

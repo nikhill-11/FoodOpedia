@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% block start %}
+
+<div style="max-width: 800px; margin: 0 auto; padding: 20px; background-color: #fff; box-shadow: 0 4px 8px rgba(0, 0.1, 0.1, 0.1); border-radius: 8px; height: auto;" >
+<div class="mb-3">
+  <div class="mx-auto col-6">
+    <form >
+     <form >
+      <div class="mb-3 d-flex align-items-center">
+        
+        <input name="search" type="search" class="form-control mr-2" placeholder="Search for a recipe">
+        <button type="submit" class="btn btn-primary">Search</button>
+    </div>
+    
+     
+    </form>
+  </div>
+</div>
+
+  <table class="table  " > 
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Recipe name</th>
+        <th scope="col">Recipe desc</th>
+        <th scope="col" >Recipe image</th>
+        <th scope="col" >Actions</th>
+
+      </tr>
+    </thead>
+   
+    <tbody>
+        {% for recepie in recepie%}
+      <tr>
+        <th scope="row">{{forloop.counter}}</th>
+        <td>{{recepie.recepie_name}}</td>
+        <td>{{recepie.recepie_desc}}</td>
+       <td >
+        <img src="/media/{{ recepie.recepie_imp }} " style=" height : 100px ; width:auto ">
+        </td> 
+        <td><a href="/delete/{{recepie.id}}" class="btn btn-danger m-2" >Delete</a>
+          <a href="/update/{{recepie.id}}" class="btn btn-success">Update</a>
+
+        </td>
+       
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+</div>
+  <hr>
+  <center>
+    <a href="/recepie">Add Recipe</a>
+  </center>
+
+{% endblock start %}

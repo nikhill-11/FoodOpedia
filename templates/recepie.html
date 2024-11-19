@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block start %}
+<div >
+<form style="max-width: 400px; margin: 0 auto;background-color: lightblue; color: black; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); padding: 20px; border-radius: 8px;" class="card p-3 mt-5 shadow-lg "  method="post" enctype="multipart/form-data">
+
+   {% csrf_token %}
+    <h2>Add Your Recipe</h2>
+    <div class="form-group">
+      <label for="exampleInputEmail1">Recipe name</label>
+      <input name="recepie_name" type="text" class="form-control"  >
+      
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Recipe description</label>
+      <textarea  name="recepie_desc" class="form-control" id="exampleInputPassword1" ></textarea>
+    </div>
+    <div class="form-group">
+        <label for="exampleInputPassword1">Recipe image</label>
+        <input name="recepie_imp" type="file"   >
+      </div>
+    <br>
+    <button type="submit" class="btn btn-success">Submit</button>
+  </form>
+  <hr>
+  <center>
+    <a href="/viewrec">check Recipe</a>
+  </center>
+  
+ 
+
+
+</div>
+
+
+  
+{% endblock start %}
